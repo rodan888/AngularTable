@@ -1,0 +1,49 @@
+[
+    {     
+	    "id": "_id1", 
+	    "name": "iPhone 5", 
+	    "price": 400, 
+	    "quantity": 5 
+	},{ 
+	    "id": "_id2", 
+	    "name": "XBOX 360", 
+	    "price": 300, 
+	    "quantity": 7 
+	},{ 
+	    "id": "_id3", 
+	    "name": "Playstation 4", 
+	    "price": 600, 
+	    "quantity": 4 
+	},{ 
+	    "id": "_id4", 
+	    "name": "Psp Vita", 
+	    "price": 450, 
+	    "quantity": 8 
+	},{ 
+	    "id": "_id5", 
+	    "name": "Playstation 3", 
+	    "price": 300, 
+	    "quantity": 12 
+	},{ 
+	    "id": "_id6", 
+	    "name": "Xbox one", 
+	    "price": 800, 
+	    "quantity": 5 
+	},{ 
+	    "id": "_id7", 
+	    "name": "Psp", 
+	    "price": 750, 
+	    "quantity": 11 
+	},{ 
+	    "id": "_id8", 
+	    "name": "XBOX 360", 
+	    "price": 300, 
+	    "quantity": 7 
+	},{ 
+	    "id": "_id9", 
+	    "name": "Playstation 4", 
+	    "price": 600, 
+	    "quantity": 4 
+	}
+]
+

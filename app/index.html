@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app='MyApp'>
+<head>
+<meta charset="UTF-8">
+<title>Angular start</title>
+<link rel="shortcut icon" href="assets/img/favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<script src="assets/libs/angular/angular.min.js"></script>
+
+<!-- Over script library -->
+<script src="assets/libs/moment/moment.min.js"></script>
+<script src="assets/libs/underscore/underscore.min.js"></script>
+<script src="assets/libs/jQuery/jquery-2.2.0.min.js"></script>
+
+<!-- Main application js -->
+<script src="app.js"></script>	
+
+<!-- Temporary paths to controllers -->
+<script src="components/data-tables/data-tables-Ctrl.js"></script>
+<script src="components/data-tables/customFilters.js"></script>
+<script src="components/data-tables/service.js"></script>
+
+
+<!-- Styles -->
+<link rel="stylesheet" href="assets/css/vendor.min.css">
+<link rel="stylesheet" href="assets/css/main.min.css">
+
+</head>
+
+<body data-ng-cloak>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img class="mt1" src="assets/img/logo1.png" alt="logo">
+				</div>
+				<div class="col-md-8 right">
+					<h1>Angular data-table</h1>
+				</div>				
+			</div>
+		</div>
+	</header>
+
+	<main data-ng-controller="tableCtrl">
+		<section class="data-table">           
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group mt2">
+							<input 
+								type="text" 
+								name="table-search" 
+								id="table-search"
+								data-ng-model="query" 
+								data-ng-change="search()"/>
+							<label for="table-search">Search</label>
+						</div>	
+						
+						<div class="form-group mt2">
+							<input 
+								type="number" 
+								id="item-page"
+								min="1" 
+								max="{{items.length}}" 
+								data-ng-model="itemsPerPage" 
+								data-ng-change="search()">
+							<label for="item-page">Items</label>
+						</div>
+						
+						<div class="table-row head">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-2">
+										<button type="button" data-ng-click="sort_by('id')">Id</button>
+									</div>
+									<div class="col-md-4">
+										<button type="button" data-ng-click="sort_by('name')">Name</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" data-ng-click="sort_by('price')">Price</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" data-ng-click="sort_by('quantity')">Quantity</button>
+									</div>
+								</div>
+							</div>							
+						</div>
+						<div class="table-row" data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-2">
+										{{item.id}}
+									</div>
+									<div class="col-md-4">
+										{{item.name}}
+									</div>
+									<div class="col-md-3">
+										{{item.price}}
+									</div>
+									<div class="col-md-3">
+										{{item.quantity}}
+									</div>
+								</div>
+							</div>							
+						</div>   
+						<div class="pagination light">
+							<ul class="pagination">
+								<li data-ng-class="{disabled: currentPage == 0}">
+										<a href data-ng-click="prevPage()"><i class="fa fa-angle-left"></i></a>
+								</li>
+								<li data-ng-repeat="n in range(pagedItems.length)"
+										data-ng-class="{active: n == currentPage}"
+								data-ng-click="setPage()">
+										<a href data-ng-bind="n + 1">1</a>
+								</li>
+								<li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+										<a href data-ng-click="nextPage()"><i class="fa fa-angle-right"></i></a>
+								</li>
+							</ul>
+						</div>             
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>	
+
+</body>
+</html>
