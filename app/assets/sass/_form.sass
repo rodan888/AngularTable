@@ -14,18 +14,19 @@
 	color: #666
 	opacity: 1
 	
-	form 
-		padding: 15px
-		margin: 0 auto	
-		min-width: 500px
-		background-color: $white
-		box-shadow: 0 1px 3px $blackLight
-		@include border-radius(3px)
+form 
+	padding: 15px
+	margin: 0 auto	
+	min-width: 500px
+	background-color: $white		
 .form-group
 	margin-bottom: 25px
 	width: 250px
 	position: relative
 	overflow: hidden
+	&.block
+		display: block
+		width: 100%
 	input[type="text"], input[type="password"],input[type="number"], textarea 
 		width: 100%
 		height: 40px

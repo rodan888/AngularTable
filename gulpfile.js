@@ -15,7 +15,7 @@ var gulp         = require('gulp'),
 
 gulp.task('browser-sync', [
 							// 'controllers',
-							'js',
+							// 'js',
 							'styles',							
 							'compress',							
 							'vendorCss',													

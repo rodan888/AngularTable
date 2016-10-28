@@ -74,17 +74,17 @@
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-md-2">
-										<button type="button" data-ng-click="sort_by('id')">Id</button>
+										<button type="button" data-ng-click="sort_by('id')">Id <i class="fa fa-caret-down"></i></button>
 									</div>
 									<div class="col-md-4">
-										<button type="button" data-ng-click="sort_by('name')">Name</button>
+										<button type="button" data-ng-click="sort_by('name')">Name <i class="fa fa-caret-down"></i></button>
 									</div>
 									<div class="col-md-3">
-										<button type="button" data-ng-click="sort_by('price')">Price</button>
+										<button type="button" data-ng-click="sort_by('price')">Price <i class="fa fa-caret-down"></i></button>
 									</div>
 									<div class="col-md-3">
-										<button type="button" data-ng-click="sort_by('quantity')">Quantity</button>
-									</div>
+										<button type="button" data-ng-click="sort_by('quantity')">Quantity <i class="fa fa-caret-down"></i></button>
+									</div>									
 								</div>
 							</div>							
 						</div>
@@ -100,12 +100,20 @@
 									<div class="col-md-3">
 										{{item.price}}
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-2">
 										{{item.quantity}}
+									</div>
+									<div class="col-md-1 right">
+										<button 
+											type="button" 
+											class="btn"
+											data-ng-click="editItem($index,item);popup=!popup">
+											<i class="fa fa-pencil"></i>
+										</button>
 									</div>
 								</div>
 							</div>							
-						</div>   
+						</div>   						
 						<div class="pagination light">
 							<ul class="pagination">
 								<li data-ng-class="{disabled: currentPage == 0}">
@@ -124,6 +132,37 @@
 					</div>
 				</div>
 			</div>
+			<div class="popup" data-ng-class="{active:popup}">
+				<div class="popup-content anim">
+					<div class="fade-out" data-ng-click="popup=!popup"><i class="fa fa-times"></i></div>
+					<form data-ng-submit="saveRow();popup=!popup">
+						<div class="form-group block">
+							<input 
+								type="text" 
+								id="edit-row-name"								
+								data-ng-model="editRow.name">
+							<label for="edit-row-name">Name</label>
+						</div>						
+						<div class="form-group block">
+							<input 
+								type="number" 
+								min="0"
+								id="edit-row-price"								
+								data-ng-model="editRow.price">
+							<label for="edit-row-price">Price</label>
+						</div>	
+						<div class="form-group block">
+							<input 
+								type="number" 
+								min="1"
+								id="edit-row-quantity"
+								data-ng-model="editRow.quantity">
+							<label for="edit-row-quantity">Quantity</label>
+						</div>	
+						<button type="submit" class="btn">submit</button>					
+					</form>
+				</div>
+			</div>		
 		</section>
 	</main>	
 
